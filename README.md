@@ -25,8 +25,14 @@
 </div>
 
 
+## Abstract
 
-# Dataset
+<div align="justify">
+  
+Hate speech detection on online platforms remains a challenging problem in natural language processing (NLP), particularly when dealing with nuanced and context-dependent expressions. This work investigates the impact of an LLM-based text data augmentation strategy. We used ChatGPT to generate augmented text data. For this experiment, we used the **XLM-RoBERTa Large** model for two-class (Hate vs Normal) hate speech classification. The augmentation process involved generating three semantically similar posts for each misclassified sample, thereby enhancing the training data with hard-to-learn examples. Experimental results on the **HateXplain** dataset demonstrate significant gains, with overall accuracy improving from **87.77%** to **95.71%** and AUC increasing from **0.94** to **0.99**. The findings suggest that targeted augmentation can significantly enhance the model’s generalization capacity and reduce classification errors in hate speech detection tasks.
+</div>
+
+## Dataset
 ### Before Filtering:
 
 **Dataset Overview:**
@@ -88,7 +94,7 @@
 
 
 
-# Model
+## Model
 ### Architecture (Lyerwise dimensions)
 
 ### 📏 Notation
