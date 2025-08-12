@@ -1,6 +1,6 @@
 <div align="center">  
   <h1 align="center">  
-    <img src="./project_banner.gif" alt="Project Banner" width="700">  
+    <img src="Icon/hate (1).png" alt="Project Banner" width="200">  
     <br>Improving Hate Speech Detection Using LLM-based Text Augmentation
   </h1>  
 
@@ -250,12 +250,23 @@ This improvement confirms that augmenting misclassified samples is an effective 
 
 
 
-# Reference
-[1] A. Conneau, K. Khandelwal, N. Goyal, V. Chaudhary, G. Wenzek, F. Guzmán, E. Grave, M. Ott, L. Zettlemoyer, and V. Stoyanov, “Unsupervised cross-lingual representation learning at scale,” arXiv preprint arXiv:1911.02116, 2019. [Online]. Available: http://arxiv.org/abs/1911.02116
+# References
 
-[2] Mathew, Binny, et al. *HateXplain: A Benchmark Dataset for Explainable Hate Speech Detection*. Proceedings of the AAAI Conference on Artificial Intelligence, 35(17), 14867–14875, 2021. [PDF](https://ojs.aaai.org/index.php/AAAI/article/view/17745) 
+[1] D. R. Beddiar, M. S. Jahan, and M. Oussalah, “Data expansion using back
+translation and paraphrasing for hate speech detection,” Online Social
+Networks and Media, vol. 24, p. 100153, 2021.
 
+[2] B. Mathew, P. Saha, S. M. Yimam, C. Biemann, P. Goyal, and A. Mukherjee, “Hatexplain: A benchmark dataset for explainable hate speech detection,” in Proceedings of the AAAI Conference on Artificial Intelligence,
+vol. 35, no. 17, 2021, pp. 14 867–14 875.
 
+[3] “literAlbDev/hatexplain · Datasets at Hugging Face — huggingface.co,”
+https://huggingface.co/datasets/literAlbDev/hatexplain, [Accessed 11-082025].
+
+[4] A. Conneau, K. Khandelwal, N. Goyal, V. Chaudhary,
+G. Wenzek, F. Guzm ́an, E. Grave, M. Ott, L. Zettlemoyer, and
+V. Stoyanov, “Unsupervised cross-lingual representation learning
+at scale,” CoRR, vol. abs/1911.02116, 2019. [Online]. Available:
+http://arxiv.org/abs/1911.02116
 
 
 
