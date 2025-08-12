@@ -27,9 +27,10 @@
 
 
 # Dataset
-## Before Filtering
+### Before Filtering:
 
-## Dataset Overview
+**Dataset Overview:**
+
 | **Attribute**            | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Dataset Name**         | HateXplain                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -46,7 +47,8 @@
 | **Example Record**       | **ID**: `23107796_gab` <br> **annotators**: `{"label": [0, 2, 2], "annotator_id": [203, 204, 233], "target": [["Hindu", "Islam"], ["Hindu", "Islam"], ["Hindu", "Islam", "Other"]]}` <br> **rationales**: Multiple lists indicating highlighted tokens <br> **post\_tokens**: `["u", "really", "think", "i", "would", "not", "have", "been", "raped", "by", "feral", "hindu", "or", "muslim", "back", "in", "india", "or", "bangladesh", "and", "a", "neo", "nazi", "would", "rape", "me", "as", "well", "just", "to", "see", "me", "cry"]` |
 
 
-## Feature Summary
+**Feature Summary:**
+
 | **Feature**      | **Type**          | **Description**                                                                  | **Example Value**                                                                                                                        |
 | ---------------- | ----------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | **id**           | `string`          | Unique identifier for each post                                                  | `"23107796_gab"`                                                                                                                         |
@@ -56,31 +58,39 @@
 
 
 
-## After Filtering
-**Filtered HateXplain Dataset Statistics**
-| **Split** | **Samples** | **Hatespeech (0)** | **Normal (1)** |
-| --------- | ------------: | -------------------: | ---------------: |
-| **Train** |        10,999 |                4,748 |            6,251 |
-| **Valid** |         1,376 |                  594 |              782 |
-| **Test**  |         1,374 |                  781 |              593 |
+### After Filtering
 
-**🏷 Label Mapping**
+<div align="center">
+
+  **_Table 1: Filtered HateXplain Dataset Statistics_**
+  
+| **Split** | **Samples** | **Hatespeech (0)** | **Normal (1)** |
+| --------- | ----------: | -----------------: | --------------: |
+| **Train** |     10,999 |             4,748 |          6,251 |
+| **Valid** |      1,376 |               594 |            782 |
+| **Test**  |      1,374 |               781 |            593 |
+
+</div>
+
+
+
+<div align="center">
+
+  **_Table 2: 🏷 Label Mapping_**
+  
 | **Label ID** | **Meaning**                                     |
 | ------------ | ----------------------------------------------- |
 | **0**        | Hatespeech                                      |
 | **1**        | Normal                                          |
 | **2**        | Offensive *(excluded in this filtered dataset)* |
 
+</div>
+
+
 
 # Model
-## Architecture
+### Architecture (Lyerwise dimensions)
 
-
-
-
-
-
-## Lyers dimension
 ### 📏 Notation
 
 - **B** = Batch size  
@@ -126,15 +136,33 @@
 
 
 # Results
-## Before Augmentation
-<img src="Results Before Augmentation/loss_comparison.png" alt="loss_comparison.png" width="600"/>
-The training and validation loss curves indicate that the model initially learns effectively, with both losses decreasing from epoch 1 to epoch 2. However, starting from epoch 3, the training loss continues to drop steadily, while the validation loss begins to rise. This divergence suggests overfitting, where the model is becoming increasingly specialized to the training data at the expense of generalization to unseen data. The lowest validation loss is observed around epoch 2, implying that this would have been an optimal early stopping point to maximize performance and avoid overfitting in later epochs.
+### Before Augmentation:
+
+<div align="center">  
+  <img src="Results Before Augmentation/loss_comparison.png" alt="loss_comparison.png" width="600"/> <br>
+  <p align="center"> <i> Figure 1: Training and validation loss curves </i></p>
+</div>
+
+Figure 1, The training and validation loss curves indicate that the model initially learns effectively, with both losses decreasing from epoch 1 to epoch 2. However, starting from epoch 3, the training loss continues to drop steadily, while the validation loss begins to rise. This divergence suggests overfitting, where the model is becoming increasingly specialized to the training data at the expense of generalization to unseen data. The lowest validation loss is observed around epoch 2, implying that this would have been an optimal early stopping point to maximize performance and avoid overfitting in later epochs.
 
 
-<img src="Results Before Augmentation/accuracy_comparison.png" alt="loss_comparison.png" width="600"/>
-The validation accuracy curve shows that the model maintains a consistently high performance across all epochs, staying around 88–89%. There is only a slight increase from epoch 1 to epoch 3, after which the accuracy stabilizes, with minimal fluctuations. This indicates that while additional training beyond epoch 3 does not significantly degrade validation accuracy, it also does not yield meaningful improvements. Combined with the validation loss trend, this suggests that the model reaches its optimal generalization capacity early in training, and further epochs mainly contribute to overfitting without boosting accuracy.
+<div align="center">  
+  <img src="Results Before Augmentation/accuracy_comparison.png" alt="loss_comparison.png" width="600"/> <br>
+  <p align="center"> <i> Figure 2: Validation accuracy curve </i></p>
+</div>
+
+Figure 2, The validation accuracy curve shows that the model maintains a consistently high performance across all epochs, staying around 88–89%. There is only a slight increase from epoch 1 to epoch 3, after which the accuracy stabilizes, with minimal fluctuations. This indicates that while additional training beyond epoch 3 does not significantly degrade validation accuracy, it also does not yield meaningful improvements. Combined with the validation loss trend, this suggests that the model reaches its optimal generalization capacity early in training, and further epochs mainly contribute to overfitting without boosting accuracy.
+
+<br>
+
+<p> <b> <i> Table 1: Classification report before augmentation </i></b></p>
 
 
+
+<div align="center">
+
+  **_Table 3: Classification report before augmentation_**
+  
 | **Class / Metric** | **Precision** | **Recall** | **F1-score** | **Support** |
 | ------------------ | ------------: | ---------: | -----------: | ----------: |
 | **Normal**         |        0.8571 |     0.8600 |       0.8586 |         593 |
@@ -143,27 +171,35 @@ The validation accuracy curve shows that the model maintains a consistently high
 | **Macro Avg**      |        0.8753 |     0.8756 |       0.8754 |        1374 |
 | **Weighted Avg**   |        0.8778 |     0.8777 |       0.8778 |        1374 |
 
-The model achieves an overall accuracy of 87.77%, showing strong performance in distinguishing between Hate and Normal posts.
+</div>
+
+From Table 3 we can see that the model achieves an overall accuracy of 87.77%, showing strong performance in distinguishing between Hate and Normal posts.
 For the Normal class, precision (85.71%) and recall (86.00%) are balanced, indicating that the model correctly identifies most normal posts while keeping false positives relatively low.
 The Hate class achieves slightly higher precision (89.35%) and recall (89.12%), meaning the model is slightly better at detecting hate speech compared to normal posts.
 The F1-scores for both classes (Normal: 85.86%, Hate: 89.23%) confirm balanced performance without significant trade-offs between precision and recall.
 Macro average values (~87.54%) show that both classes are treated relatively equally, while weighted averages (~87.78%) reflect the class distribution without a significant performance drop due to imbalance.
 
 
-<img src="Results Before Augmentation/confusion_matrix.png" alt="loss_comparison.png" width="600"/>
-The confusion matrix shows that the model correctly classified 510 Normal posts and 696 Hate posts, demonstrating strong predictive ability for both categories.
+<div align="center">  
+  <img src="Results Before Augmentation/confusion_matrix.png" alt="loss_comparison.png" width="600"/>
+  <p align="center"> <i> Figure 3: Confusion matrix before augmentation </i></p>
+</div>
+The confusion matrix in Figure 3 shows that the model correctly classified 510 Normal posts and 696 Hate posts, demonstrating strong predictive ability for both categories.
 Misclassifications are relatively balanced, with 83 Normal posts incorrectly labeled as Hate and 85 Hate posts incorrectly labeled as Normal, indicating no severe bias toward one class.
 The high number of correct predictions for Hate posts (true positives) and Normal posts (true negatives) aligns with the strong precision and recall scores in the classification report.
 Overall, the confusion matrix confirms that the model performs reliably in detecting hate speech while maintaining accuracy in identifying normal content.
 
-<img src="Results Before Augmentation/roc_curve.png" alt="loss_comparison.png" width="600"/>
-The ROC curve demonstrates that the model maintains a high true positive rate while keeping the false positive rate relatively low across varying classification thresholds.
+<div align="center">  
+  <img src="Results Before Augmentation/roc_curve.png" alt="loss_comparison.png" width="600"/>
+  <p align="center"> <i> Figure 4: ROC curve before augmentation </i></p>
+</div>
+The ROC curve in Figure 4 demonstrates that the model maintains a high true positive rate while keeping the false positive rate relatively low across varying classification thresholds.
 The curve rises steeply towards the top-left corner, indicating strong discriminatory power between the Hate and Normal classes.
 An AUC score of 0.94 confirms excellent performance, meaning there is a 94% probability that the model will rank a randomly chosen hate speech example higher than a randomly chosen normal post.
 This high AUC suggests that the model is robust to threshold changes and is effective at balancing sensitivity (recall) and specificity.
 
 
-## After Augmentation
+
 
 ### 🛠 Data Augmentation Strategy
 
@@ -178,7 +214,7 @@ This method targeted the model’s weak spots directly, leading to a **+9% absol
 
 ---
 
-#### 📊 Block Diagram
+#### 📊 Data Augmentation Flowchart
 
 ```mermaid
 flowchart TD
@@ -190,14 +226,27 @@ flowchart TD
 
 ```
 
-<img src="Results After Augmentation/loss_comparison.png" alt="loss_comparison.png" width="600"/>
-The updated training and validation loss curves show that after augmenting the misclassified samples and retraining, the model achieves lower validation loss in the early epochs compared to before. Both training and validation loss decrease steadily up to epoch 3, indicating better generalization. While validation loss begins to rise slightly after epoch 3, the increase is more gradual than in the original training, suggesting that augmentation has reduced overfitting and improved the model’s ability to learn from challenging examples.
+## After Augmentation
+
+<div align="center">  
+  <img src="Results After Augmentation/loss_comparison.png" alt="loss_comparison.png" width="600"/>
+  <p align="center"> <i> Figure 5: Training and validation loss curves </i></p>
+</div>
+
+Figure 5, the updated training and validation loss curves show that after augmenting the misclassified samples and retraining, the model achieves lower validation loss in the early epochs compared to before. Both training and validation loss decrease steadily up to epoch 3, indicating better generalization. While validation loss begins to rise slightly after epoch 3, the increase is more gradual than in the original training, suggesting that augmentation has reduced overfitting and improved the model’s ability to learn from challenging examples.
+
+<div align="center">  
+  <img src="Results After Augmentation/accuracy_comparison.png" alt="loss_comparison.png" width="600"/>
+  <p align="center"> <i> Figure 6: Validation accuracy curve after augmentation </i></p>
+</div>
+
+Figure 6, the validation accuracy curve after augmentation shows a clear improvement in early epochs, rising from around 84% in epoch 1 to nearly 89% by epoch 3. This indicates that adding augmented misclassified samples enhanced the model’s learning from the start, allowing it to generalize better to unseen data. While accuracy slightly dips after epoch 3, it remains consistently higher than the initial epoch values, suggesting that the augmentation strategy effectively strengthened the model’s robustness without causing significant overfitting.
 
 
-<img src="Results After Augmentation/accuracy_comparison.png" alt="loss_comparison.png" width="600"/>
-The validation accuracy curve after augmentation shows a clear improvement in early epochs, rising from around 84% in epoch 1 to nearly 89% by epoch 3. This indicates that adding augmented misclassified samples enhanced the model’s learning from the start, allowing it to generalize better to unseen data. While accuracy slightly dips after epoch 3, it remains consistently higher than the initial epoch values, suggesting that the augmentation strategy effectively strengthened the model’s robustness without causing significant overfitting.
+<div align="center">
 
- Classification Report – After Augmentation
+  **_Table 4: Classification Report – After Augmentation_**
+  
 | **Class / Metric** | **Precision** | **Recall** | **F1-score** | **Support** |
 | ------------------ | ------------: | ---------: | -----------: | ----------: |
 | **Normal**         |        0.9363 |     0.9663 |       0.9510 |         593 |
@@ -206,12 +255,21 @@ The validation accuracy curve after augmentation shows a clear improvement in ea
 | **Macro Avg**      |        0.9550 |     0.9582 |       0.9564 |        1374 |
 | **Weighted Avg**   |        0.9576 |     0.9571 |       0.9571 |        1374 |
 
+</div>
 
-After augmentation, the model’s accuracy increased from 87.77% to 95.71%, indicating a substantial improvement in predictive performance. Precision and recall both improved for Normal and Hate classes, with Normal recall jumping from ~86% to ~96% and Hate precision reaching ~97%. The balanced gains across both classes suggest that augmentation not only reduced false positives for the Hate class but also significantly improved the model’s ability to correctly identify Normal posts. This performance boost confirms that similar-sentence based data augmentation enhanced the model’s generalization and reduced prior misclassifications.
 
 
-<img src="Results After Augmentation/confusion_matrix.png" alt="loss_comparison.png" width="600"/>
-The updated confusion matrix after augmentation shows a significant performance boost:
+
+
+From Table 4 we can see that after augmentation, the model’s accuracy increased from 87.77% to 95.71%, indicating a substantial improvement in predictive performance. Precision and recall both improved for Normal and Hate classes, with Normal recall jumping from ~86% to ~96% and Hate precision reaching ~97%. The balanced gains across both classes suggest that augmentation not only reduced false positives for the Hate class but also significantly improved the model’s ability to correctly identify Normal posts. This performance boost confirms that similar-sentence based data augmentation enhanced the model’s generalization and reduced prior misclassifications.
+
+
+<div align="center">  
+  <img src="Results After Augmentation/confusion_matrix.png" alt="loss_comparison.png" width="600"/>
+  <p align="center"> <i> Figure 7: Confusion matrix after augmentation </i></p>
+</div>
+
+The updated confusion matrix after augmentation in Figur 7 shows a significant performance boost:
 
 1. Normal class: Out of 593 actual Normal posts, the model correctly classified 573 and misclassified only 20 as Hate.
 
@@ -219,14 +277,20 @@ The updated confusion matrix after augmentation shows a significant performance 
 
 Compared to the pre-augmentation results, both false positives and false negatives have dropped sharply. This demonstrates that the augmentation process has strengthened the model’s ability to correctly classify both categories, improving balance and reducing misclassification errors in both directions.
 
-<img src="Results After Augmentation/roc_curve_0.9915.png" alt="loss_comparison.png" width="600"/>
-The ROC curve after augmentation shows a dramatic improvement, with the AUC reaching 0.99, indicating near-perfect separation between the Hate and Normal classes.
+<div align="center">  
+  <img src="Results After Augmentation/roc_curve_0.9915.png" alt="loss_comparison.png" width="600"/>
+  <p align="center"> <i> Figure 8: ROC curve after augmentation </i></p>
+</div>
+
+Figure 8, the ROC curve after augmentation shows a dramatic improvement, with the AUC reaching 0.99, indicating near-perfect separation between the Hate and Normal classes.
 The curve rises almost vertically towards the top-left corner, meaning the model achieves a very high true positive rate while keeping the false positive rate close to zero across most thresholds.
 This reflects a strong ability to correctly classify both classes with minimal errors, and confirms that the augmentation step greatly enhanced the model’s discriminative power.
 
 
- Performance Improvement – Before vs. After Augmentation
- 
+<div align="center">
+
+  **_Table 5: Performance Improvement – Before vs. After Augmentation_**
+  
 | **Metric**           | **Before** | **After** | **% Improvement** |
 | -------------------- | ---------: | --------: | ----------------: |
 | **Normal Precision** |     0.8571 |    0.9363 |            +9.23% |
@@ -237,10 +301,12 @@ This reflects a strong ability to correctly classify both classes with minimal e
 | **Hate F1**          |     0.8923 |    0.9618 |            +7.78% |
 | **Accuracy**         |     0.8777 |    0.9571 |            +9.06% |
 
+</div>
+
 
 ### 📖 Interpretation
 
-The results clearly demonstrate that **error-driven data augmentation** significantly improved the model’s performance:
+From Table 5, the results clearly demonstrate that **error-driven data augmentation** significantly improved the model’s performance:
 
 - **Normal** class recall showed the largest gain (**+12.35%**), meaning the model is now much better at correctly identifying non-hate content.  
 - **Hate** class precision improved by nearly **9%**, reducing false positives and improving reliability in hate speech detection.  
