@@ -1,13 +1,30 @@
-Packages:
-transforme
-dataset 
-numpy
-pandas
-matplotlib
-sklearn
-os
-collections
-evaluate
+<div align="center">  
+  <h1 align="center">  
+    <img src="./project_banner.gif" alt="Project Banner" width="700">  
+    <br>Improving Hate Speech Detection Using LLM-based Text Augmentation
+  </h1>  
+
+  <h3>Developed with the packages and tools below 🛠️</h3>  
+
+  <p align="center">  
+    <img src="https://img.shields.io/badge/Transformers-blue?style=flat&logo=huggingface&logoColor=white&labelColor=gray" alt="Transformers"/>  
+    <img src="https://img.shields.io/badge/Datasets-blue?style=flat&logo=huggingface&logoColor=white&labelColor=gray" alt="Datasets"/>  
+    <img src="https://img.shields.io/badge/Numpy-blue?style=flat&logo=numpy&logoColor=white&labelColor=gray" alt="NumPy"/>  
+    <img src="https://img.shields.io/badge/Pandas-blue?style=flat&logo=pandas&logoColor=white&labelColor=gray" alt="Pandas"/>  
+    <img src="https://img.shields.io/badge/Matplotlib-blue?style=flat&logo=python&logoColor=white&labelColor=gray" alt="Matplotlib"/>  
+    <img src="https://img.shields.io/badge/scikit--learn-blue?style=flat&logo=scikit-learn&logoColor=white&labelColor=gray" alt="Scikit-learn"/>  
+    <img src="https://img.shields.io/badge/OS-blue?style=flat&logo=linux&logoColor=white&labelColor=gray" alt="OS"/>  
+    <img src="https://img.shields.io/badge/Collections-blue?style=flat&logo=python&logoColor=white&labelColor=gray" alt="Collections"/>  
+    <img src="https://img.shields.io/badge/Evaluate-blue?style=flat&logo=huggingface&logoColor=white&labelColor=gray" alt="Evaluate"/>  
+  </p>  
+
+  <img src="https://img.shields.io/github/license/Abu-Taher-web/Hate-Speech-Classification-Using-XLM-RoBERTa-Large?style=for-the-badge&color=5D6D7E" alt="GitHub license" />  
+  <img src="https://img.shields.io/github/last-commit/Abu-Taher-web/Hate-Speech-Classification-Using-XLM-RoBERTa-Large?style=for-the-badge&color=5D6D7E" alt="git-last-commit" />  
+  <img src="https://img.shields.io/github/commit-activity/m/Abu-Taher-web/Hate-Speech-Classification-Using-XLM-RoBERTa-Large?style=for-the-badge&color=5D6D7E" alt="GitHub commit activity" />  
+  <img src="https://img.shields.io/github/languages/top/Abu-Taher-web/Hate-Speech-Classification-Using-XLM-RoBERTa-Large?style=for-the-badge&color=5D6D7E" alt="GitHub top language" />  
+</div>
+
+
 
 # Dataset
 ## Before Filtering
